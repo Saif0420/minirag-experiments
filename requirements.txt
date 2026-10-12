@@ -1,0 +1,6 @@
+minirag-hku
+jupyter
+pandas
+matplotlib
+networkx
+ollama
