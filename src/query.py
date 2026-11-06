@@ -5,7 +5,7 @@ from minirag.utils import EmbeddingFunc
 rag = MiniRAG(
     working_dir="./minirag_cache",
     llm_model_func=ollama_model_complete,
-    llm_model_name="llama3.2",
+    llm_model_name="qwen2.5:3b",
     embedding_func=EmbeddingFunc(
         embedding_dim=768,
         max_token_size=8192,
