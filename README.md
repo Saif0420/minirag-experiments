@@ -40,3 +40,25 @@ In this setup, MiniRAG did not beat naive RAG, which is the opposite of the pape
 ### Next
 
 Re-index with Qwen2.5-3B instead of llama3.2 to test whether a denser graph improves MiniRAG.
+
+## Experiment 2: denser graph with Qwen2.5-3B
+
+Same 25 files and 12 questions, but the graph was built with Qwen2.5-3B instead of llama3.2.
+
+| Indexing model | Nodes | Edges |
+|---|---|---|
+| llama3.2 | 218 | 41 |
+| qwen2.5:3b | 124 | 111 |
+
+| Experiment | MiniRAG (correct / partial / wrong) | Naive RAG (correct / partial / wrong) |
+|---|---|---|
+| 1: llama3.2 graph | 0 / 1 / 11 | 1 / 2 / 9 |
+| 2: qwen2.5 graph | 3 / 1 / 8 | 1 / 2 / 9 |
+
+### Observations
+
+- Naive RAG doesn't use the graph and its score didn't change, so it acts as a control. MiniRAG improved, which suggests the denser graph caused the gain.
+- All three of MiniRAG's correct answers were questions that need information from several conversations, which is what the graph is designed for.
+- Single-fact questions failed for both methods in both experiments (0 of 7). Every file mentions LiHua, so retrieval may bring back too many unrelated chunks.
+- Naive RAG sometimes made up content, for example inventing a whole conversation for the FC Barcelona question.
+- With only 12 questions, this is a direction, not a conclusive result.

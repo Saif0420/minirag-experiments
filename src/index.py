@@ -3,7 +3,7 @@ from minirag import MiniRAG, QueryParam
 from minirag.llm.ollama import ollama_model_complete, ollama_embed
 from minirag.utils import EmbeddingFunc
 
-WORKING_DIR = "./minirag_cache"
+WORKING_DIR = "./minirag_cache_qwen"
 
 if not os.path.exists(WORKING_DIR):
     os.makedirs(WORKING_DIR)
@@ -11,7 +11,7 @@ if not os.path.exists(WORKING_DIR):
 rag = MiniRAG(
     working_dir=WORKING_DIR,
     llm_model_func=ollama_model_complete,
-    llm_model_name="llama3.2",
+    llm_model_name="qwen2.5:3b",
     embedding_func=EmbeddingFunc(
         embedding_dim=768,
         max_token_size=8192,

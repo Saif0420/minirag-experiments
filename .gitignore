@@ -220,5 +220,5 @@ __marimo__/
 .streamlit/secrets.toml
 
 .venv312/
-minirag_cache/
+minirag_cache*/
 data/lihua_world/LiHuaWorld.zip

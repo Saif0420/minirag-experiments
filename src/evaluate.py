@@ -4,7 +4,7 @@ from minirag.llm.ollama import ollama_model_complete, ollama_embed
 from minirag.utils import EmbeddingFunc
 
 rag = MiniRAG(
-    working_dir="./minirag_cache",
+    working_dir="./minirag_cache_qwen",
     llm_model_func=ollama_model_complete,
     llm_model_name="qwen2.5:3b",
     embedding_func=EmbeddingFunc(
@@ -40,7 +40,7 @@ for item in questions:
         "naive": rag.query(item["q"], param=QueryParam(mode="naive")),
     })
 
-with open("results/comparison.json", "w", encoding="utf-8") as f:
+with open("results/comparison_qwen.json", "w", encoding="utf-8") as f:
     json.dump(results, f, indent=2, ensure_ascii=False)
 
-print("Saved to results/comparison.json")
+print("Saved to results/comparison_qwen.json")
