@@ -22,7 +22,7 @@ rag = MiniRAG(
 from pathlib import Path
 
 dataset_dir = Path("./data/lihua_world")
-files = list(dataset_dir.rglob("*.txt"))[:5]
+files = list(dataset_dir.rglob("*.txt"))[:25]
 
 print(f"Found {len(files)} files")
 
