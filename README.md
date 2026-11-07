@@ -62,3 +62,10 @@ Same 25 files and 12 questions, but the graph was built with Qwen2.5-3B instead 
 - Single-fact questions failed for both methods in both experiments (0 of 7). Every file mentions LiHua, so retrieval may bring back too many unrelated chunks.
 - Naive RAG sometimes made up content, for example inventing a whole conversation for the FC Barcelona question.
 - With only 12 questions, this is a direction, not a conclusive result.
+
+![Knowledge graph](results/graph_qwen.png)
+
+- LiHua is the central hub, connected to the people he talks to most (Wolfgang Schulz, Adam Smith, Jake Watson, ChaeSong-hwa).
+- The graph separates LiHua's own conversations from an unrelated group chat about Game of Thrones.
+- "LIHUA" and "LI HUA" were extracted as two different entities, so LiHua's connections are split across two nodes. Better entity matching could improve retrieval.
+- Many entities have no connections at all (the outer ring), even with the denser graph.
